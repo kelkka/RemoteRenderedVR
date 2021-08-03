@@ -1,0 +1,35 @@
+#version 450 core
+
+layout(local_size_x = 16, local_size_y = 16) in;
+
+layout(binding = 0) uniform sampler2D gSceneTexture;
+layout(binding = 1, rg16ui) uniform uimage2D gCompressionTexture;
+layout(binding = 2, rgba8) uniform image2D gEncodedTexture;
+
+uniform int gWidth;
+uniform int gHeight;
+uniform ivec2 gStartCoord;
+
+void main()
+{
+	uint index = (gStartCoord.y + gl_GlobalInvocationID.y) * gWidth + gStartCoord.x + gl_GlobalInvocationID.x;
+
+	if (index >= gWidth * gHeight)
+		return;
+
+	ivec2 texCoord;
+	texCoord.x = int(index) % gWidth;
+	texCoord.y = int(index) / gWidth;
+
+	//Get mapping coord
+	ivec2 mapping = ivec2(imageLoad(gCompressionTexture, texCoord).rg);
+
+	//Use mapping coord to fetch pixel from scene
+	vec4 color = texelFetch(gSceneTexture, mapping, 0);
+
+	color.a = 1;
+	color.r = mapping.r / 1511.0f;
+	color.g =  mapping.g / 1680.0f;
+	//Move that pixel to this texcoord
+	imageStore(gEncodedTexture, texCoord, color);
+}

@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Network\Client.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\Timers.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\VRInputs.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\MainEngine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\NetworkDataProvider.cpp">
+      <Filter>NvCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\Decode\DecLowLatency.cpp">
+      <Filter>NvCodec\Decode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GLCamera.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GLShaderHandler.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\ResolutionSettings.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\StatCalc.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\ThreadBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\CompressorMap.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Network\Client.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Timers.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\VRInputs.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\MainEngine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\NetworkDataProvider.h">
+      <Filter>NvCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Decode\DecLowLatency.h">
+      <Filter>NvCodec\Decode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\CudaError.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\EncodedFrame.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GLCamera.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GLShaderHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Packets.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\ResolutionSettings.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\StatCalc.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\stb_image.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\stb_image_write.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\ThreadBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\VertexDataLens.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\CompressorMap.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Decode\DecWrapper.h">
+      <Filter>NvCodec\Decode</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{17c373b2-04a5-4fe7-a430-6f0e87691961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec">
+      <UniqueIdentifier>{36a32573-900f-4323-a930-1b704ff22725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{a9762cf1-2a74-4bfd-84c3-1741bf571a9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{034ead6b-eafa-4a38-adb3-9fce71ebc048}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{5019a582-9e63-4137-b85d-ab40c8467261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec\Decode">
+      <UniqueIdentifier>{1b95d594-faf4-4622-a191-d85f605cb1a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{63a06b59-3878-4288-8319-1eec18f42474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{17e7ec61-770e-4ff7-97e4-3968a2725829}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\content\shaders\vsQuadDec.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\content\shaders\vsCompanion.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\content\shaders\fsQuadDec.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\content\shaders\fsCompanion.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\content\shaders\coDecompress.comp">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\content\shaders\fsQuadDecFlipped.frag">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

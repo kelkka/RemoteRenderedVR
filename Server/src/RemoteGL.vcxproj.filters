@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Network">
+      <UniqueIdentifier>{14907cb3-07e8-4c33-b0c7-24b829855116}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec">
+      <UniqueIdentifier>{d2f2b8e9-904a-4367-a997-8c130cc23ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render">
+      <UniqueIdentifier>{c51bae0d-fa17-4aed-bbeb-0f85b1ef8016}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{5255616c-3218-44aa-a91d-a178d4dbdae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{89fdc7f2-b036-493b-b877-a3c85d7155ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NvCodec\Encode">
+      <UniqueIdentifier>{e745b031-6631-481d-b58a-0bccd2c87b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Shaders">
+      <UniqueIdentifier>{5e15c2d9-6c1c-4305-af66-5523b02f766e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{a1c86153-b4fb-4cd6-9230-8295eb1c2ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Shaders\D3D">
+      <UniqueIdentifier>{05559411-5eb4-4098-a11d-185e6463d402}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\Shaders\OpenGL">
+      <UniqueIdentifier>{87bdd5d8-7ddc-47ff-a1ed-9e9a7e9c2ffa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\VRInputs.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Network\Server.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\DecodedFrame.cpp">
+      <Filter>NvCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\NetworkEngine.cpp">
+      <Filter>NvCodec</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\Timers.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\NetBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\ResolutionSettings.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\StatCalc.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\ThreadBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GLShaderHandler.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\GLWindow.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\TextRenderer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\CompressorMap.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\RenderHelper.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\D3DRenderer.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\MainEngineD3D.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\D3DShader.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\Encode\EncoderBase.cpp">
+      <Filter>NvCodec\Encode</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\D3DCompressor.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Render\D3DHelper.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\PNG.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\CrashDump.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Engine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\MainEngineGL.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\Encode\EncoderD3D.cpp">
+      <Filter>NvCodec\Encode</Filter>
+    </ClCompile>
+    <ClCompile Include="NvCodec\Encode\EncoderGL.cpp">
+      <Filter>NvCodec\Encode</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\VRInputs.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Network\Server.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\CudaError.h">
+      <Filter>NvCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\DecodedFrame.h">
+      <Filter>NvCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\NetworkEngine.h">
+      <Filter>NvCodec</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Timers.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\NetBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Packets.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\WinsockWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\ResolutionSettings.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\StatCalc.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\stb_image.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\stb_image_write.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\VertexDataLens.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\ThreadBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GLShaderHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\GLWindow.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\TextRenderer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\CompressorMap.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\RenderHelper.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\D3DRenderer.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\MainEngineD3D.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\D3DShader.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Encode\EncoderBase.h">
+      <Filter>NvCodec\Encode</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\D3DHelper.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="Render\D3DCompressor.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\PNG.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\CrashDump.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Encode\EncWrapper.h">
+      <Filter>NvCodec\Encode</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Engine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\MainEngineGL.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Encode\EncoderD3D.h">
+      <Filter>NvCodec\Encode</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Encode\EncoderGL.h">
+      <Filter>NvCodec\Encode</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\content\shaders\fsCompanion.frag">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsCompress.frag">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsCube.frag">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsDistort.frag">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsStencil.frag">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsText.glsl">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\fsTextBackground.glsl">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsCompanion.vert">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsCompress.vert">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsCube.vert">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsDistort.vert">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsStencil.vert">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsText.glsl">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+    <None Include="..\content\shaders\vsTextBackground.glsl">
+      <Filter>Render\Shaders\OpenGL</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="..\content\shaders\D3D\VS_Cube.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+    <FxCompile Include="..\content\shaders\D3D\PS_Cube.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+    <FxCompile Include="..\content\shaders\D3D\PS_Stencil.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+    <FxCompile Include="..\content\shaders\D3D\VS_Stencil.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+    <FxCompile Include="..\content\shaders\D3D\PS_Compressor.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+    <FxCompile Include="..\content\shaders\D3D\VS_Compressor.hlsl">
+      <Filter>Render\Shaders\D3D</Filter>
+    </FxCompile>
+  </ItemGroup>
+</Project>

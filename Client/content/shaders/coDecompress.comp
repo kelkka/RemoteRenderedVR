@@ -1,0 +1,39 @@
+//Full screen quad rendering, rectangle comes from cuda, resize and move that to 2d texture here
+#version 450 core
+
+layout(local_size_x = 16, local_size_y = 16) in;
+
+layout(binding = 0) uniform sampler2DRect gEncoded;
+layout(binding = 1, rgba8) uniform image2D gDecoded;
+layout(binding = 2, rg16ui) uniform uimage2D gCompressionTexture;
+
+uniform int gEncWidth;
+uniform int gEncHeight;
+
+void main()
+{
+	uint x = gl_GlobalInvocationID.x;
+	uint y = gl_GlobalInvocationID.y;
+
+	//Get mapping coord
+	uint indexInt = (y) * 1520 + x;
+	ivec2 mapVec;
+	mapVec.x = int(indexInt) % 1520;
+	mapVec.y = (int(indexInt) / 1520);
+	uvec2 mapping = imageLoad(gCompressionTexture, mapVec).rg;
+
+	//FROM ENCODED
+	uint fromInt = (y) * gEncWidth + x;
+	ivec2 fromVec2;
+	fromVec2.x = int(fromInt) % gEncWidth;
+	fromVec2.y = gEncHeight - (int(fromInt) / gEncWidth);
+	vec4 color = vec4(texture2DRect(gEncoded, fromVec2).rgb, 1.0f);
+
+	//TO DECODED
+	uint toInt = (mapping.y + 1) * 1520 + mapping.x; //Must do mapping.y + 1 here or image will be off by 1 pixel in y, but why?
+	ivec2 toVec2;
+	toVec2.x = int(toInt) % 1520;
+	toVec2.y = 1680 - (int(toInt) / 1520);
+
+	imageStore(gDecoded, toVec2, color);
+}
