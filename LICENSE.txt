@@ -1,5 +1,3 @@
-RemoteRenderedVR:
-
 Remote Rendered VR
 Copyright (c) 2020, Viktor Kelkkanen <viktor.kelkkanen[]bth se>
 
