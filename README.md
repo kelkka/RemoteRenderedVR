@@ -1,16 +1,15 @@
 Remote Rendered VR
 ---
 
-This is an experimental prototype remote renderer for VR intended for testing the applicability of remote VR technologies in any network of choice. 
+This is an experimental prototype remote renderer for VR intended for testing the applicability of remote VR technologies in any network of choice.
 
-I wrote the code for this project on my own with the sole purpose of enabling the testing of hypotheses for various papers during my Ph.D.
-Therefore, implementations are usually just at the bare minimum for them to work for the test in question, and the code is not super well organized. I have tried to tidy things up a bit before publishing here, but be aware that the code was not initially intended for anyone else to see.
+I wrote the code for this project on my own with the sole purpose of enabling the testing of hypotheses for various papers during my Ph.D. Therefore, this is not the most beautiful nor well structured code you will come across. I have tried to tidy things up a bit before publishing here, but be aware that this code was not initially intended for anyone else to see.
 
 ### Requirements
 
-Windows 10
-Visual Studio 2015 (Newer might work with some tinkering)
-CUDA Toolkit 11.1
+Windows 10  
+Visual Studio 2015 (Newer might work with some tinkering)  
+CUDA Toolkit 11.1  
 
 ### Usage
 
@@ -27,27 +26,27 @@ This is the bare minimum to get started, but I will expand this section in the f
 
 ### Publications
 
-This software was developed for and used in the following publications:
+This software was developed for and used in the following publications:  
 
-Synchronous Remote Rendering for VR, (2021)
-https://www.hindawi.com/journals/ijcgt/2021/6676644/
+Synchronous Remote Rendering for VR, (2021)  
+https://www.hindawi.com/journals/ijcgt/2021/6676644/  
 
-Remapping of Hidden Area Mesh Pixels for Codec Speed-up in Remote VR, (2021)
-https://ieeexplore.ieee.org/document/9465408
+Remapping of Hidden Area Mesh Pixels for Codec Speed-up in Remote VR, (2021)  
+https://ieeexplore.ieee.org/document/9465408  
 
-Bitrate Requirements of Non-Panoramic VR Remote Rendering, (2020)
-https://dl.acm.org/doi/10.1145/3394171.3413681
+Bitrate Requirements of Non-Panoramic VR Remote Rendering, (2020)  
+https://dl.acm.org/doi/10.1145/3394171.3413681  
 
 
 ### TODO
 
-These are the most obvious limitations I am currently aware of:
+These are the most obvious limitations I am currently aware of:  
 
-MSAA in D3D11 			-	MSAA is not yet implemented in D3D11, only in OpenGL.
-OpenGL World scene		-	The "World-scene", i.e. cube-map of a mountain-view is only implemented in D3D11 so far, not OpenGL.
-D3D11 encoder crash		-	There is some low level bug in the Nvidia decoder when using D3D11 that can cause random crashes when using D3D11.
-D3D11 COM object leaks	-	Some COM objects are currently leaking in D3D11.
-Restarting				-	Server stops when test is complete and must be restarted manually or e.g. by batch script.
-Reconnecting			-	If the server is not running when the client starts, the connection will fail, so the server must be started first.
-Hand controllers		-	The input data of hand controllers are never sent to the server and rendering of hand controllers is not yet implemented.
+MSAA in D3D11 			-	MSAA is not yet implemented in D3D11, only in OpenGL.  
+OpenGL World scene		-	The "World-scene", i.e. cube-map of a mountain-view is only implemented in D3D11 so far, not OpenGL.  
+D3D11 encoder crash		-	There is some low level bug in the Nvidia decoder when using D3D11 that can cause random crashes when using D3D11.  
+D3D11 COM object leaks	-	Some COM objects are currently leaking in D3D11.  
+Restarting				-	Server stops when test is complete and must be restarted manually or e.g. by batch script.  
+Reconnecting			-	If the server is not running when the client starts, the connection will fail, so the server must be started first.  
+Hand controllers		-	The input data of hand controllers are never sent to the server and rendering of hand controllers is not yet implemented.  
 
