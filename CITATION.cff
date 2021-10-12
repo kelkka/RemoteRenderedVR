@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Viktor"
+  given-names: "Kelkkanen"
+  orcid: "https://orcid.org/0000-0002-0536-7165"
+title: "Remote Rendered VR"
+version: 1.0
+doi: 
+date-released: 2021-07-20
+url: "https://github.com/kelkka/RemoteRenderedVR"
+preferred-citation:
+  type: article
+  authors:
+	- family-names: "Viktor"
+	  given-names: "Kelkkanen"
+	  orcid: "https://orcid.org/0000-0002-0536-7165"
+	- family-names: "Markus"
+	  given-names: "Fiedler"
+	  orcid: "https://orcid.org/0000-0001-8929-4911"
+	- family-names: "David"
+	  given-names: "Lindero"
+	  orcid: "https://orcid.org/0000-0000-0000-0000"
+  doi: "10.1155/2021/6676644"
+  journal: "International Journal of Computer Games Technology"
+  month: 7
+  start: 1 # First page number
+  end: 16 # Last page number
+  title: "Synchronous Remote Rendering for VR"
+  issue: 1
+  volume: 2021
+  year: 2021
