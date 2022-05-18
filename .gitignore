@@ -42,3 +42,11 @@ ipch/
 DecoderLib/
 EncoderLib/
 Stat_*
+/Client/src/NvCodec/Utils/Resize.cu
+/Client/src/NvCodec/Utils/NvEncoderCLIOptions.h
+/Client/src/NvCodec/Utils/NvCodecUtils.h
+/Client/src/NvCodec/Utils/Logger.h
+/Client/src/NvCodec/Utils/crc.cu
+/Client/src/NvCodec/Utils/ColorSpace.h
+/Client/src/NvCodec/Utils/ColorSpace.cu
+/Client/src/NvCodec/Utils/BitDepth.cu
