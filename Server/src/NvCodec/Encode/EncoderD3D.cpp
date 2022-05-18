@@ -216,9 +216,9 @@ void EncoderD3D::SpecificProcess()
 	////}
 
 	//m_encoder->EncodeFrame(m_packets, &picParams);
-
+	CudaLock();
 	m_encoder->EncodeWithD3D(m_packets);
-
+	CudaUnlock();
 	//CudaUnlock();
 	//m_encoder->Flush(m_packets);
 

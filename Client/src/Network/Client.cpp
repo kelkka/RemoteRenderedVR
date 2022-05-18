@@ -101,7 +101,7 @@ void Client::ListenUDP()
 		int size = sizeof(sockaddr_in);
 		getsockname(m_socketUDP, (struct sockaddr *) &addr, &size);
 
-		printf("Receiving on UDP port %d %d\n", htons(addr.sin_port), addr.sin_port);
+		//printf("Receiving on UDP port %d %d\n", htons(addr.sin_port), addr.sin_port);
 
 		buffer[0] = -111;
 		int err = WSAGetLastError();
@@ -378,10 +378,10 @@ int Client::CopyFBBuffer(unsigned char* _mem, unsigned char _eye, int _size)
 					m_eye[_eye].ParallelData[eyeDataIndex].FirstPktRecvTime = Timers::Get().Time();
 
 					//Most likely no longer needed, but not sure
-					if (readPosRaw == 1)
+					/*if (readPosRaw == 1)
 					{
 						SendInputPacket();
-					}
+					}*/
 				}
 
 				bool isSignificantWait = false;

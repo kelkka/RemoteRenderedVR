@@ -595,6 +595,9 @@ bool MainEngineD3D::SetupStereoRenderTargets()
 	//Super sampled resolution, hard coded for now
 	int width = 1520;
 	int height = 1680;
+	//int width = int(m_width );
+	//int height = int(m_height);
+
 	printf("Resolution zero is rendered at: %dx%d\n", width, height);
 	m_renderBufferIndex = ResolutionSettings::Get().AddResolution(glm::ivec2(width, height));
 

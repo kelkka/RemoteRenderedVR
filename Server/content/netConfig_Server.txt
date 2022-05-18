@@ -1,16 +1,16 @@
 double LOSS 0
 
 double GAMMA_P_VAL 0.994
-double BITRATE 40000000
+double BITRATE 10000000
 double MOVING_SCENE 0
 double NO_LENS_DISTORTION 1
 double COMPANION_WINDOW 0
 double FILE_IDENTIFIER_INT 77
 double FIXED_FRAME_RATE 1
 double USE_COMPRESSOR_MAP 0
-double USE_D3D11 1
+double USE_D3D11 0
 double USE_WORLD_MESH 1
-double H265 1
+double H265 0
 
 string SCREENSHOT_PATH ../content/output/testing
 string LENS_MAPPING_PATH ../../Common/LensMappings/Mapping3

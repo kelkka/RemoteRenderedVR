@@ -212,6 +212,10 @@ void DecLowLatency::SpecificProcess()
 		m_newFrameReady = true;
 		m_newFrameCond.notify_one();
 	}
+	else
+	{
+		printf("Decoder failed!\n");
+	}
 }
 
 CUdeviceptr DecLowLatency::GetDeviceFramePtr()

@@ -3,7 +3,7 @@
 #define UDP_PORT 17112
 #define TCP_PORT 17113
 
-#define FRAME_PAYLOAD_SIZE 1401
+#define FRAME_PAYLOAD_SIZE 1400
 
 #include <bitset>
 #include <VertexDataLens.h>

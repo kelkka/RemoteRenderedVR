@@ -12,11 +12,12 @@
 #include <atomic>
 #include <glm/glm.hpp>
 #include "DecWrapper.h"
+#include "DecBase.h"
 
 class Client;
 class NetDataProvider;
 
-class DecLowLatency : public ThreadBase
+class DecLowLatency : public DecBase
 {
 public:
 
@@ -56,32 +57,5 @@ private:
 
 	CUdeviceptr m_deviceFrame[FRAME_QUEUE_SIZE] = { 0,0,0 };
 	CUcontext m_cuContext = 0;
-
-	int m_width = 0;
-	int m_height = 0;
-
-	volatile int m_frameIDbegin = -1;
-
-	unsigned char m_resolutionLevel = 0;
-	unsigned char m_eye = 0;
-
-	Client* m_client = nullptr;
-
-	bool m_newFrameReady = false;
-	std::mutex m_runMutex;
-	std::condition_variable m_newFrameCond;
-
-	std::atomic<int> m_decodedFrameID = -1;
-	int m_lastNonRenderedFrameID = -1;
-
-	//Frame buffering can be enabled if m_dynamicQueueSize is larger than 1.
-	int m_dynamicQueueSize = 1;
-	int m_swapIndexRead = 0;
-	int m_swapIndexWrite = 0;
-
-	//Should be large enough in all cases, but can be increased if needed
-	static const int MAX_VIDEO_FRAME_SIZE = 1024 * 1024;
-
-	uint8_t m_videoMemory[MAX_VIDEO_FRAME_SIZE];
 };
 

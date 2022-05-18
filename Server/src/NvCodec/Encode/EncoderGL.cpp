@@ -18,9 +18,11 @@ EncoderGL::~EncoderGL()
 
 	DestroyWorker();
 // 	m_encoder->DestroyEncoder();
+if(m_encoder != nullptr)
  	delete m_encoder;
 
 	CudaErr(cuvidCtxLockDestroy(m_cudaLock));
+	if(m_memory != nullptr)
 	delete m_memory;
 }
 

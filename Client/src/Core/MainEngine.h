@@ -62,6 +62,9 @@ public:
 	void PrintFrame();
 	void SetBitrate(int _rate);
 	bool SetupStereoRenderTargets();
+
+	void CreateDecoder();
+
 	void SetupCompanionWindow();
 	void GLErrorCheck(const char* _method, int _line);
 	void RenderCompanionWindow();
@@ -78,6 +81,7 @@ public:
 
 	bool CopyImageFromDecoder(int _eye);
 
+	bool CopyImageFromDecoderOpenH264(int _eye);
 	void ComputeDecompression(GLuint _decoderTexture, GLuint _resolveTexture, GLuint _compressionTexture);
 	void ExperimentLogic();
 	void DecodedTextureResize();
@@ -121,7 +125,7 @@ private:
 	GLuint m_glDecoderPBO[2];
 	GLuint m_glDecoderTexture[2];
 	CUgraphicsResource m_cuDecResource[2];
-	DecLowLatency* m_decoder[2] = { nullptr,nullptr };
+	DecBase* m_decoder[2] = { nullptr, nullptr };
 	CUdevice m_cuDevice = 0;
 	CUcontext m_cuDecContext[2] = { 0,0 };
 
@@ -186,6 +190,7 @@ private:
 
 	bool m_kickOffDelay = 0;
 	int m_predictFramesAhead = 0;
+	int m_predictionsKickedOff = 0;
 
 	//SuperScale* m_superScale = nullptr;
 	//unsigned char* m_superScaleImageMem = nullptr;

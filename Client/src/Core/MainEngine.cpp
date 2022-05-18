@@ -5,6 +5,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb_image_write.h>
 #include <stb_image.h>
+#include "..\NvCodec\Decode\DecOpenH264.h"
 
 //#define DO_GL_ERROR_CHECKS
 
@@ -15,8 +16,6 @@ MainEngine::MainEngine()
 {
 
 }
-
-
 
 // Destructor
 
@@ -144,6 +143,7 @@ bool MainEngine::Init()
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 5);
+
 	if (m_pCompanionWindow == NULL)
 	{
 		printf("%s - Window could not be created! SDL Error: %s\n", __FUNCTION__, SDL_GetError());
@@ -166,7 +166,7 @@ bool MainEngine::Init()
 	}
 	glGetError(); // to clear the error caused deep in GLEW
 
-	int vsync = 0;
+	int vsync = 1;
 
 	if (SDL_GL_SetSwapInterval(vsync) < 0)
 	{
@@ -393,7 +393,10 @@ void MainEngine::Shutdown()
 		{
 			if (m_decoder[i] != nullptr)
 			{
-				delete m_decoder[i];
+				if(StatCalc::GetParameter("NVDEC") > 0)
+					delete (DecLowLatency*)m_decoder[i];
+				else
+					delete (DecOpenH264*)m_decoder[i];
 			}
 		}
 
@@ -1049,10 +1052,6 @@ bool MainEngine::CreateFrameBuffer(int nWidth, int nHeight, FramebufferDesc& fra
 	return true;
 }
 
-
-
-// 
-
 bool MainEngine::SetupStereoRenderTargets()
 {
 	if (!NO_VR)
@@ -1115,56 +1114,71 @@ bool MainEngine::SetupStereoRenderTargets()
 	CreateFrameBuffer(fbWidth, fbHeight, m_leftEye, true);
 	CreateFrameBuffer(fbWidth, fbHeight, m_rightEye, true);
 
-	for (int i = 0; i < 2; i++)
+	if(StatCalc::GetParameter("NVDEC") > 0)
 	{
-		m_decoder[i] = new DecLowLatency();
-	}
+		for (int i = 0; i < 2; i++)
+		{
+			m_decoder[i] = new DecLowLatency();
+		}
 
-	CudaErr(cuInit(0));
-	int iGpu = 0;
-	CudaErr(cuDeviceGet(&m_cuDevice, iGpu));
-	char szDeviceName[80];
-	CudaErr(cuDeviceGetName(szDeviceName, sizeof(szDeviceName), m_cuDevice));
-	std::cout << "GPU in use: " << szDeviceName << std::endl;
-
-	for (int i = 0; i < 2; i++)
-	{
-		CudaErr(cuCtxCreate(&m_cuDecContext[i], CU_CTX_SCHED_BLOCKING_SYNC, m_cuDevice));
-	}
-
-	//MSE Calc
-	//CreateFrameBuffer(m_width, m_height, m_copyBuffer, true);
-
-
-	CUDA_ERROR_CHECK
+		CudaErr(cuInit(0));
+		int iGpu = 0;
+		CudaErr(cuDeviceGet(&m_cuDevice, iGpu));
+		char szDeviceName[80];
+		CudaErr(cuDeviceGetName(szDeviceName, sizeof(szDeviceName), m_cuDevice));
+		std::cout << "GPU in use: " << szDeviceName << std::endl;
 
 		for (int i = 0; i < 2; i++)
 		{
-			CudaErr(cuCtxSetCurrent(m_cuDecContext[i]));
-			CudaErr(cuGraphicsGLRegisterBuffer(&m_cuDecResource[i], m_glDecoderPBO[i], CU_GRAPHICS_REGISTER_FLAGS_WRITE_DISCARD));
+			CudaErr(cuCtxCreate(&m_cuDecContext[i], CU_CTX_SCHED_BLOCKING_SYNC, m_cuDevice));
 		}
 
-	int resBase = 0;
+		CUDA_ERROR_CHECK
 
-	if (USE_COMPRESSOR_MAP)
+			for (int i = 0; i < 2; i++)
+			{
+				CudaErr(cuCtxSetCurrent(m_cuDecContext[i]));
+				CudaErr(cuGraphicsGLRegisterBuffer(&m_cuDecResource[i], m_glDecoderPBO[i], CU_GRAPHICS_REGISTER_FLAGS_WRITE_DISCARD));
+			}
+	}
+	else
 	{
-		resBase = FRAME_BUFFERS;
+		printf("Using Open H264 software decoding\n");
+
+		for (int i = 0; i < 2; i++)
+		{
+			m_decoder[i] = new DecOpenH264();
+		}
 	}
 
-	for (int i = 0; i < 2; i++)
-	{
-		m_decoder[i]->InitDecoder(m_cuDecContext[i], i, &m_client, ResolutionSettings::Get().Resolution(resBase));
-	}
+	CreateDecoder();
 
-
-	CUDA_ERROR_CHECK
+	//MSE Calc
+//CreateFrameBuffer(m_width, m_height, m_copyBuffer, true);
 
 	return true;
 }
 
-
-
-// 
+void MainEngine::CreateDecoder()
+{
+	int resBase = 0;
+	if (USE_COMPRESSOR_MAP)
+	{
+		resBase = FRAME_BUFFERS;
+	}
+	for (int i = 0; i < 2; i++)
+	{
+		if (StatCalc::GetParameter("NVDEC") > 0)
+		{
+			((DecLowLatency*)m_decoder[i])->InitDecoder(m_cuDecContext[i], i, &m_client, ResolutionSettings::Get().Resolution(resBase));
+			CUDA_ERROR_CHECK
+		}
+		else
+		{
+			((DecOpenH264*)m_decoder[i])->InitDecoder(i, &m_client, ResolutionSettings::Get().Resolution(resBase));
+		}
+	}
+}
 
 void MainEngine::SetupCompanionWindow()
 {
@@ -1544,7 +1558,7 @@ bool MainEngine::RenderCudaToGL()
 	//glDisable(GL_DEPTH_TEST);
 
 	//Will render to native size
-	const glm::ivec2& nativeSize = ResolutionSettings::Get().Resolution(0);
+	const glm::ivec2& nativeSize = ResolutionSettings::Get().Resolution(m_client.GetCurrentLevel());
 
 	glViewport(0, 0, nativeSize.x, nativeSize.y);
 
@@ -1555,11 +1569,24 @@ bool MainEngine::RenderCudaToGL()
 	//	m_decoder[_eye]->GoProcess();
 	//}
 
-	for (int i = 0; i < 2; i++)
+	if(StatCalc::GetParameter("NVDEC") > 0)
 	{
-		if (CopyImageFromDecoder(i) == false)
+		for (int i = 0; i < 2; i++)
 		{
-			return false;
+			if (CopyImageFromDecoder(i) == false)
+			{
+				return false;
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < 2; i++)
+		{
+			if (CopyImageFromDecoderOpenH264(i) == false)
+			{
+				return false;
+			}
 		}
 	}
 
@@ -1624,7 +1651,7 @@ bool MainEngine::CopyImageFromDecoder(int _eye)
 		nativeSize = ResolutionSettings::Get().Resolution(COMPRESSOR_BUFFER_INDEX);
 	}
 
-	CUdeviceptr devicePtr = m_decoder[_eye]->GetDeviceFramePtr();
+	CUdeviceptr devicePtr = ((DecLowLatency*)m_decoder[_eye])->GetDeviceFramePtr();
 
 	//Safety
 	if (devicePtr == 0)
@@ -1634,10 +1661,12 @@ bool MainEngine::CopyImageFromDecoder(int _eye)
 		return false;
 
 	//Are we allowed to pick a frame from the decoder? Here we can allow more frame lag to impose a delay buffer
-	if (m_decoder[_eye]->WaitCurrentFrameReady(m_predictFramesAhead, m_clFrameIndex[_eye] + 1) == false)
+	if (m_decoder[_eye]->WaitCurrentFrameReady(m_predictFramesAhead, m_clFrameIndex[_eye] + (1 + m_predictionsKickedOff)) == false)
 		return false;
 
 	m_clFrameIndex[_eye]++;
+
+	//printf("Sending frame to cuda (Eye %d) (%d)\n",_eye, m_clFrameIndex[_eye]);
 
 	CudaErr(cuCtxSetCurrent(m_cuDecContext[_eye]));
 
@@ -1667,6 +1696,81 @@ bool MainEngine::CopyImageFromDecoder(int _eye)
 	//Copy pixel buffer to texture rectangle
 	glBindTexture(GL_TEXTURE_RECTANGLE, m_glDecoderTexture[_eye]);
 	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_glDecoderPBO[_eye]);
+	glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, nativeSize.x, nativeSize.y, GL_BGRA, GL_UNSIGNED_BYTE, 0);
+
+	//Unbind
+	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, 0);
+	glBindTexture(GL_TEXTURE_RECTANGLE, 0);
+
+	GLErrorCheck(__func__, __LINE__);
+
+	return true;
+}
+
+bool MainEngine::CopyImageFromDecoderOpenH264(int _eye)
+{
+	glm::ivec2 nativeSize = ResolutionSettings::Get().Resolution(0);
+
+	if (USE_COMPRESSOR_MAP)
+	{
+		nativeSize = ResolutionSettings::Get().Resolution(COMPRESSOR_BUFFER_INDEX);
+	}
+
+	//Are we allowed to pick a frame from the decoder? Here we can allow more frame lag to impose a delay buffer
+	//if (m_predictFramesAhead > 0)
+	//{
+	//	int sends = m_predictFramesAhead - m_predictionsKickedOff;
+	//	for (int i = 0; i < sends;i++)
+	//	{
+	//		TransmitInputMatrix(1.0f / 90.0f, true);
+	//		m_predictionsKickedOff++;
+	//		printf("Kicking off delay\n");
+	//	}
+	//}
+
+	if (m_decoder[_eye]->WaitCurrentFrameReady(m_predictFramesAhead, m_clFrameIndex[_eye] + (1)) == false)
+		return false;
+
+	unsigned char* rgbData = ((DecOpenH264*)m_decoder[_eye])->GetRgbPtr();
+
+	m_clFrameIndex[_eye]++;
+
+	//printf("Sending frame to cuda (Eye %d) (%d)\n",_eye, m_clFrameIndex[_eye]);
+
+	// bind PBO to update texture source
+	glBindBuffer(GL_PIXEL_UNPACK_BUFFER_ARB, m_glDecoderPBO[_eye]);
+
+	// Note that glMapBuffer() causes sync issue.
+	// If GPU is working with this buffer, glMapBuffer() will wait(stall)
+	// until GPU to finish its job. To avoid waiting (idle), you can call
+	// first glBufferData() with NULL pointer before glMapBuffer().
+	// If you do that, the previous data in PBO will be discarded and
+	// glMapBuffer() returns a new allocated pointer immediately
+	// even if GPU is still working with the previous data.
+
+	size_t size = m_decoder[_eye]->GetWidth() * m_decoder[_eye]->GetHeight() * 4;
+
+	glBufferData(GL_PIXEL_UNPACK_BUFFER, size, 0, GL_STREAM_DRAW);
+
+	// map the buffer object into client's memory
+	GLubyte* ptr = (GLubyte*)glMapBuffer(GL_PIXEL_UNPACK_BUFFER, GL_WRITE_ONLY);
+	if (ptr)
+	{
+		// update data directly on the mapped buffer
+		memcpy(ptr, rgbData, size);
+		glUnmapBuffer(GL_PIXEL_UNPACK_BUFFER); // release the mapped buffer
+	}
+	else
+	{
+		printf("glMapBuffer failed ! %d\n", glGetError());
+	}
+
+	glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
+
+	//Copy pixel buffer to texture rectangle
+	glBindTexture(GL_TEXTURE_RECTANGLE, m_glDecoderTexture[_eye]);
+	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_glDecoderPBO[_eye]);
+
 	glTexSubImage2D(GL_TEXTURE_RECTANGLE, 0, 0, 0, nativeSize.x, nativeSize.y, GL_BGRA, GL_UNSIGNED_BYTE, 0);
 
 	//Unbind
@@ -1746,53 +1850,43 @@ void MainEngine::DecodedTextureResize()
 
 void MainEngine::PostDecodeDelayDecision()
 {
-	static int desyncs = 0;
+	//Doesnt matter
+	//
+	//static int desyncs = 0;
+	//if (m_decoder[0]->GetLastFrameID() != m_decoder[1]->GetLastFrameID())
+	//{
+	//	//Images are not on the same index, this will get fixed if we wait up
+	//	printf("Images have different index! %d %d\n", m_decoder[0]->GetLastFrameID(), m_decoder[1]->GetLastFrameID());
 
-	if (m_decoder[0]->GetLastFrameID() != m_decoder[1]->GetLastFrameID())
-	{
-		//int slackingEye = 1;
+	//	//RenderCudaToGL();
 
-		//if (m_decoder[0]->GetLastFrameID() < m_decoder[1]->GetLastFrameID())
-		//{
-		//	slackingEye = 0;
-		//}
+	//	//m_kickOffDelay = true;
 
-		//m_decoder[slackingEye]->FrameIDBeginIncrement();
+	//	if (m_predictFramesAhead == 0)
+	//	{
+	//		printf("Avoiding desync... (Happens every start)\n");
 
-		//CopyImageFromDecoder(slackingEye);
+	//		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-		//Images are not on the same index, this will get fixed if we wait up
-		printf("Images have different index! %d %d\n", m_decoder[0]->GetLastFrameID(), m_decoder[1]->GetLastFrameID());
+	//		desyncs++;
 
-		//RenderCudaToGL();
+	//		if (desyncs > 3)
+	//		{
+	//			//Skip frame if things take too long, this was used before but shouldnt happen any longer
 
-		//m_kickOffDelay = true;
+	//			if (m_decoder[0]->GetLastFrameID() > m_decoder[1]->GetLastFrameID())
+	//			{
+	//				m_decoder[1]->ArtificialIncreaseFrameID();
+	//			}
+	//			else
+	//			{
+	//				m_decoder[0]->ArtificialIncreaseFrameID();
+	//			}
 
-		if (m_predictFramesAhead == 0)
-		{
-			printf("Avoiding desync... (Happens every start)\n");
-
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-
-			desyncs++;
-
-			if (desyncs > 3)
-			{
-				//Skip frame if things take too long, this was used before but shouldnt happen any longer
-
-				if (m_decoder[0]->GetLastFrameID() > m_decoder[1]->GetLastFrameID())
-				{
-					m_decoder[1]->ArtificialIncreaseFrameID();
-				}
-				else
-				{
-					m_decoder[0]->ArtificialIncreaseFrameID();
-				}
-
-				printf("Frame was skipped!\n");
-			}
-		}
-	}
+	//			printf("Frame was skipped!\n");
+	//		}
+	//	}
+	//}
 
 	if (m_kickOffDelay)
 	{
@@ -1803,6 +1897,8 @@ void MainEngine::PostDecodeDelayDecision()
 		m_kickOffDelay = false;
 		TransmitInputMatrix(1.0f / 90.0f, true);
 		printf("kicking off delay!\n");
+		m_predictionsKickedOff++;
+		Sleep(11);
 	}
 }
 

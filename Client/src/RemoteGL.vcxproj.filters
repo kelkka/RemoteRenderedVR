@@ -43,6 +43,9 @@
     <ClCompile Include="Render\CompressorMap.cpp">
       <Filter>Render</Filter>
     </ClCompile>
+    <ClCompile Include="NvCodec\Decode\DecOpenH264.cpp">
+      <Filter>NvCodec\Decode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Network\Client.h">
@@ -105,6 +108,24 @@
     <ClInclude Include="NvCodec\Decode\DecWrapper.h">
       <Filter>NvCodec\Decode</Filter>
     </ClInclude>
+    <ClInclude Include="NvCodec\Utils\ColorSpace.h">
+      <Filter>NvCodec\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Utils\Logger.h">
+      <Filter>NvCodec\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Utils\NvCodecUtils.h">
+      <Filter>NvCodec\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Utils\NvEncoderCLIOptions.h">
+      <Filter>NvCodec\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Decode\DecOpenH264.h">
+      <Filter>NvCodec\Decode</Filter>
+    </ClInclude>
+    <ClInclude Include="NvCodec\Decode\DecBase.h">
+      <Filter>NvCodec\Decode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Shaders">
@@ -131,6 +152,9 @@
     <Filter Include="Render">
       <UniqueIdentifier>{17e7ec61-770e-4ff7-97e4-3968a2725829}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NvCodec\Utils">
+      <UniqueIdentifier>{ffdd643f-3955-468b-8140-ca5b45b7a4c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\content\shaders\vsQuadDec.vert">
@@ -151,5 +175,19 @@
     <None Include="..\content\shaders\fsQuadDecFlipped.frag">
       <Filter>Shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="NvCodec\Utils\BitDepth.cu">
+      <Filter>NvCodec\Utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="NvCodec\Utils\ColorSpace.cu">
+      <Filter>NvCodec\Utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="NvCodec\Utils\crc.cu">
+      <Filter>NvCodec\Utils</Filter>
+    </CudaCompile>
+    <CudaCompile Include="NvCodec\Utils\Resize.cu">
+      <Filter>NvCodec\Utils</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>
