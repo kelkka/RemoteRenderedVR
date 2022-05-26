@@ -1,0 +1,465 @@
+﻿SSQ,User,Before,After
+General discomfort,1,1,1
+Fatigue,1,1,0
+Headache,1,0,0
+Eye strain,1,0,1
+Difficulty focusing,1,1,1
+Salivation increasing,1,0,0
+Sweating,1,0,0
+Nausea,1,0,0
+Difficulty concentrating,1,1,2
+Fullness of head,1,0,0
+Blurred vision,1,0,1
+Dizziness with eyes open,1,1,1
+Dizziness with eyes closed,1,1,1
+Vertigo,1,0,0
+Stomach awareness,1,0,0
+Burping,1,0,0
+General discomfort,2,0,0
+Fatigue,2,0,0
+Headache,2,0,0
+Eye strain,2,2,2
+Difficulty focusing,2,0,0
+Salivation increasing,2,0,0
+Sweating,2,0,0
+Nausea,2,0,0
+Difficulty concentrating,2,0,0
+Fullness of head,2,0,0
+Blurred vision,2,1,1
+Dizziness with eyes open,2,0,0
+Dizziness with eyes closed,2,0,0
+Vertigo,2,0,0
+Stomach awareness,2,0,0
+Burping,2,0,0
+General discomfort,3,1,0
+Fatigue,3,1,0
+Headache,3,1,0
+Eye strain,3,0,0
+Difficulty focusing,3,0,0
+Salivation increasing,3,0,0
+Sweating,3,0,0
+Nausea,3,0,0
+Difficulty concentrating,3,1,0
+Fullness of head,3,0,0
+Blurred vision,3,0,0
+Dizziness with eyes open,3,0,0
+Dizziness with eyes closed,3,1,0
+Vertigo,3,0,0
+Stomach awareness,3,0,0
+Burping,3,0,0
+General discomfort,4,0,0
+Fatigue,4,2,2
+Headache,4,0,0
+Eye strain,4,3,1
+Difficulty focusing,4,3,0
+Salivation increasing,4,0,0
+Sweating,4,0,0
+Nausea,4,0,0
+Difficulty concentrating,4,1,0
+Fullness of head,4,0,0
+Blurred vision,4,0,0
+Dizziness with eyes open,4,0,0
+Dizziness with eyes closed,4,0,0
+Vertigo,4,0,0
+Stomach awareness,4,0,0
+Burping,4,0,0
+General discomfort,5,0,0
+Fatigue,5,0,0
+Headache,5,0,0
+Eye strain,5,0,0
+Difficulty focusing,5,0,0
+Salivation increasing,5,0,0
+Sweating,5,0,0
+Nausea,5,0,0
+Difficulty concentrating,5,0,0
+Fullness of head,5,0,0
+Blurred vision,5,0,0
+Dizziness with eyes open,5,0,0
+Dizziness with eyes closed,5,0,0
+Vertigo,5,0,0
+Stomach awareness,5,0,0
+Burping,5,0,0
+General discomfort,6,0,0
+Fatigue,6,0,0
+Headache,6,0,0
+Eye strain,6,0,0
+Difficulty focusing,6,0,0
+Salivation increasing,6,0,0
+Sweating,6,0,0
+Nausea,6,0,0
+Difficulty concentrating,6,0,0
+Fullness of head,6,0,0
+Blurred vision,6,0,0
+Dizziness with eyes open,6,0,0
+Dizziness with eyes closed,6,0,0
+Vertigo,6,0,0
+Stomach awareness,6,0,0
+Burping,6,0,0
+General discomfort,7,0,0
+Fatigue,7,0,0
+Headache,7,0,0
+Eye strain,7,0,0
+Difficulty focusing,7,0,0
+Salivation increasing,7,0,0
+Sweating,7,0,0
+Nausea,7,0,0
+Difficulty concentrating,7,0,0
+Fullness of head,7,0,0
+Blurred vision,7,0,0
+Dizziness with eyes open,7,0,0
+Dizziness with eyes closed,7,0,0
+Vertigo,7,0,0
+Stomach awareness,7,0,0
+Burping,7,0,0
+General discomfort,8,0,0
+Fatigue,8,0,0
+Headache,8,0,0
+Eye strain,8,0,0
+Difficulty focusing,8,0,0
+Salivation increasing,8,0,0
+Sweating,8,0,0
+Nausea,8,0,0
+Difficulty concentrating,8,0,0
+Fullness of head,8,0,0
+Blurred vision,8,0,0
+Dizziness with eyes open,8,0,0
+Dizziness with eyes closed,8,0,0
+Vertigo,8,0,0
+Stomach awareness,8,0,0
+Burping,8,0,0
+General discomfort,9,0,0
+Fatigue,9,0,0
+Headache,9,0,0
+Eye strain,9,0,0
+Difficulty focusing,9,0,0
+Salivation increasing,9,0,0
+Sweating,9,0,0
+Nausea,9,0,0
+Difficulty concentrating,9,0,0
+Fullness of head,9,0,0
+Blurred vision,9,0,0
+Dizziness with eyes open,9,0,0
+Dizziness with eyes closed,9,0,0
+Vertigo,9,0,0
+Stomach awareness,9,0,0
+Burping,9,0,0
+General discomfort,10,0,0
+Fatigue,10,0,0
+Headache,10,0,0
+Eye strain,10,0,0
+Difficulty focusing,10,0,0
+Salivation increasing,10,0,0
+Sweating,10,0,0
+Nausea,10,0,0
+Difficulty concentrating,10,0,0
+Fullness of head,10,0,0
+Blurred vision,10,0,0
+Dizziness with eyes open,10,0,0
+Dizziness with eyes closed,10,0,0
+Vertigo,10,0,0
+Stomach awareness,10,0,0
+Burping,10,0,0
+General discomfort,11,0,0
+Fatigue,11,0,0
+Headache,11,0,0
+Eye strain,11,0,0
+Difficulty focusing,11,0,0
+Salivation increasing,11,0,0
+Sweating,11,0,0
+Nausea,11,0,0
+Difficulty concentrating,11,0,0
+Fullness of head,11,0,0
+Blurred vision,11,0,0
+Dizziness with eyes open,11,0,0
+Dizziness with eyes closed,11,0,0
+Vertigo,11,0,0
+Stomach awareness,11,0,0
+Burping,11,0,0
+General discomfort,12,0,0
+Fatigue,12,0,0
+Headache,12,0,0
+Eye strain,12,0,0
+Difficulty focusing,12,0,0
+Salivation increasing,12,0,0
+Sweating,12,0,0
+Nausea,12,0,0
+Difficulty concentrating,12,0,0
+Fullness of head,12,0,0
+Blurred vision,12,0,0
+Dizziness with eyes open,12,0,0
+Dizziness with eyes closed,12,0,0
+Vertigo,12,0,0
+Stomach awareness,12,0,0
+Burping,12,0,0
+General discomfort,13,0,0
+Fatigue,13,0,0
+Headache,13,0,0
+Eye strain,13,0,0
+Difficulty focusing,13,0,0
+Salivation increasing,13,0,0
+Sweating,13,0,0
+Nausea,13,0,0
+Difficulty concentrating,13,0,0
+Fullness of head,13,0,0
+Blurred vision,13,0,0
+Dizziness with eyes open,13,0,0
+Dizziness with eyes closed,13,0,0
+Vertigo,13,0,0
+Stomach awareness,13,0,0
+Burping,13,0,0
+General discomfort,14,0,1
+Fatigue,14,0,0
+Headache,14,0,0
+Eye strain,14,0,1
+Difficulty focusing,14,0,0
+Salivation increasing,14,0,0
+Sweating,14,0,0
+Nausea,14,0,0
+Difficulty concentrating,14,0,0
+Fullness of head,14,0,0
+Blurred vision,14,0,0
+Dizziness with eyes open,14,0,0
+Dizziness with eyes closed,14,0,0
+Vertigo,14,0,0
+Stomach awareness,14,0,0
+Burping,14,0,0
+General discomfort,15,0,1
+Fatigue,15,0,0
+Headache,15,0,0
+Eye strain,15,0,0
+Difficulty focusing,15,0,0
+Salivation increasing,15,0,0
+Sweating,15,0,0
+Nausea,15,0,0
+Difficulty concentrating,15,0,0
+Fullness of head,15,0,1
+Blurred vision,15,0,0
+Dizziness with eyes open,15,0,0
+Dizziness with eyes closed,15,0,0
+Vertigo,15,0,0
+Stomach awareness,15,0,0
+Burping,15,0,0
+General discomfort,16,0,0
+Fatigue,16,0,0
+Headache,16,0,0
+Eye strain,16,0,0
+Difficulty focusing,16,0,0
+Salivation increasing,16,0,0
+Sweating,16,0,0
+Nausea,16,0,0
+Difficulty concentrating,16,1,1
+Fullness of head,16,1,1
+Blurred vision,16,0,0
+Dizziness with eyes open,16,0,0
+Dizziness with eyes closed,16,0,1
+Vertigo,16,0,0
+Stomach awareness,16,0,0
+Burping,16,0,0
+General discomfort,17,0,0
+Fatigue,17,0,0
+Headache,17,1,1
+Eye strain,17,0,0
+Difficulty focusing,17,0,0
+Salivation increasing,17,0,0
+Sweating,17,0,0
+Nausea,17,0,0
+Difficulty concentrating,17,0,0
+Fullness of head,17,0,0
+Blurred vision,17,0,0
+Dizziness with eyes open,17,0,0
+Dizziness with eyes closed,17,0,0
+Vertigo,17,0,0
+Stomach awareness,17,0,0
+Burping,17,0,0
+General discomfort,18,1,1
+Fatigue,18,1,1
+Headache,18,1,1
+Eye strain,18,1,1
+Difficulty focusing,18,1,1
+Salivation increasing,18,0,0
+Sweating,18,0,0
+Nausea,18,0,0
+Difficulty concentrating,18,1,1
+Fullness of head,18,1,1
+Blurred vision,18,0,0
+Dizziness with eyes open,18,0,0
+Dizziness with eyes closed,18,0,0
+Vertigo,18,0,0
+Stomach awareness,18,0,0
+Burping,18,0,0
+General discomfort,19,1,0
+Fatigue,19,0,0
+Headache,19,0,0
+Eye strain,19,0,0
+Difficulty focusing,19,1,0
+Salivation increasing,19,1,0
+Sweating,19,0,1
+Nausea,19,1,0
+Difficulty concentrating,19,1,2
+Fullness of head,19,0,2
+Blurred vision,19,0,0
+Dizziness with eyes open,19,0,0
+Dizziness with eyes closed,19,0,0
+Vertigo,19,0,0
+Stomach awareness,19,0,0
+Burping,19,1,0
+General discomfort,20,0,0
+Fatigue,20,1,1
+Headache,20,0,0
+Eye strain,20,0,1
+Difficulty focusing,20,0,1
+Salivation increasing,20,0,0
+Sweating,20,0,0
+Nausea,20,0,0
+Difficulty concentrating,20,1,1
+Fullness of head,20,0,0
+Blurred vision,20,0,0
+Dizziness with eyes open,20,0,0
+Dizziness with eyes closed,20,0,0
+Vertigo,20,0,0
+Stomach awareness,20,0,0
+Burping,20,0,0
+General discomfort,21,0,0
+Fatigue,21,1,1
+Headache,21,0,0
+Eye strain,21,1,2
+Difficulty focusing,21,0,0
+Salivation increasing,21,0,0
+Sweating,21,0,0
+Nausea,21,0,1
+Difficulty concentrating,21,0,0
+Fullness of head,21,0,0
+Blurred vision,21,0,0
+Dizziness with eyes open,21,0,0
+Dizziness with eyes closed,21,0,0
+Vertigo,21,0,0
+Stomach awareness,21,0,0
+Burping,21,0,0
+General discomfort,22,0,2
+Fatigue,22,1,0
+Headache,22,0,1
+Eye strain,22,0,0
+Difficulty focusing,22,0,0
+Salivation increasing,22,0,0
+Sweating,22,0,1
+Nausea,22,0,2
+Difficulty concentrating,22,0,0
+Fullness of head,22,0,1
+Blurred vision,22,0,0
+Dizziness with eyes open,22,0,0
+Dizziness with eyes closed,22,0,1
+Vertigo,22,0,2
+Stomach awareness,22,0,1
+Burping,22,0,0
+General discomfort,23,0,0
+Fatigue,23,1,0
+Headache,23,1,1
+Eye strain,23,1,0
+Difficulty focusing,23,0,0
+Salivation increasing,23,0,0
+Sweating,23,0,0
+Nausea,23,0,0
+Difficulty concentrating,23,1,0
+Fullness of head,23,0,1
+Blurred vision,23,0,0
+Dizziness with eyes open,23,0,0
+Dizziness with eyes closed,23,0,0
+Vertigo,23,0,0
+Stomach awareness,23,0,0
+Burping,23,0,0
+General discomfort,24,0,0
+Fatigue,24,0,0
+Headache,24,0,0
+Eye strain,24,0,0
+Difficulty focusing,24,0,0
+Salivation increasing,24,0,0
+Sweating,24,0,0
+Nausea,24,0,0
+Difficulty concentrating,24,0,0
+Fullness of head,24,0,0
+Blurred vision,24,0,0
+Dizziness with eyes open,24,0,1
+Dizziness with eyes closed,24,0,1
+Vertigo,24,0,0
+Stomach awareness,24,0,0
+Burping,24,0,0
+General discomfort,25,0,2
+Fatigue,25,1,1
+Headache,25,0,1
+Eye strain,25,1,1
+Difficulty focusing,25,1,1
+Salivation increasing,25,0,0
+Sweating,25,0,0
+Nausea,25,0,2
+Difficulty concentrating,25,1,1
+Fullness of head,25,0,0
+Blurred vision,25,0,0
+Dizziness with eyes open,25,0,1
+Dizziness with eyes closed,25,0,2
+Vertigo,25,0,1
+Stomach awareness,25,0,0
+Burping,25,0,0
+General discomfort,26,0,1
+Fatigue,26,0,0
+Headache,26,0,1
+Eye strain,26,0,1
+Difficulty focusing,26,2,2
+Salivation increasing,26,0,0
+Sweating,26,1,1
+Nausea,26,0,1
+Difficulty concentrating,26,2,2
+Fullness of head,26,0,1
+Blurred vision,26,0,0
+Dizziness with eyes open,26,0,0
+Dizziness with eyes closed,26,0,1
+Vertigo,26,0,1
+Stomach awareness,26,0,1
+Burping,26,0,0
+General discomfort,27,0,0
+Fatigue,27,0,0
+Headache,27,0,0
+Eye strain,27,1,1
+Difficulty focusing,27,0,0
+Salivation increasing,27,0,0
+Sweating,27,0,0
+Nausea,27,0,0
+Difficulty concentrating,27,0,0
+Fullness of head,27,0,1
+Blurred vision,27,1,1
+Dizziness with eyes open,27,0,0
+Dizziness with eyes closed,27,0,1
+Vertigo,27,0,0
+Stomach awareness,27,0,1
+Burping,27,0,0
+General discomfort,28,0,1
+Fatigue,28,0,2
+Headache,28,0,1
+Eye strain,28,1,1
+Difficulty focusing,28,0,2
+Salivation increasing,28,0,0
+Sweating,28,1,0
+Nausea,28,0,0
+Difficulty concentrating,28,0,2
+Fullness of head,28,0,2
+Blurred vision,28,0,1
+Dizziness with eyes open,28,0,0
+Dizziness with eyes closed,28,0,0
+Vertigo,28,0,1
+Stomach awareness,28,0,0
+Burping,28,0,0
+General discomfort,29,1,1
+Fatigue,29,1,1
+Headache,29,1,2
+Eye strain,29,1,2
+Difficulty focusing,29,1,2
+Salivation increasing,29,0,0
+Sweating,29,0,0
+Nausea,29,1,1
+Difficulty concentrating,29,1,1
+Fullness of head,29,1,3
+Blurred vision,29,1,1
+Dizziness with eyes open,29,0,1
+Dizziness with eyes closed,29,0,1
+Vertigo,29,0,0
+Stomach awareness,29,1,1
+Burping,29,0,0
