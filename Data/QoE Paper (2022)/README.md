@@ -26,11 +26,11 @@ Simulator Sickness Questionnaire results before and after test, for each subject
 
 - `Legend_SSQ.csv`
 
-Key/legend for the numbered assesments in the `SSQ.csv`-file
+Key/legend for the numbered assessment in the `SSQ.csv`-file
 
 - `Subject_Metadata.csv`
 
-Per-subject metadata about age, gender and VR-experience, togethere with an anonymized user ID that follows through the dataset.
+Per-subject metadata about age, gender and VR-experience, together with an anonymized user ID that follows through the dataset.
 
 
 ## Excel files
