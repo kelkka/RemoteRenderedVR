@@ -2,12 +2,12 @@ double LOSS 0
 
 double GAMMA_P_VAL 0.994
 double RESOLUTION_FACTOR 0.20
-double MOUSE_LOOK 0
+double MOUSE_LOOK 1
 double COMPANION_WINDOW 1
-double NO_VR 0
+double NO_VR 1
 double NO_LENS_DISTORTION 1
 
-double ROTATING_VIEW 1
+double ROTATING_VIEW 0
 double ROTATING_DEG_PER_SEC 90
 double ROTATION_INCREMENT 10
 
@@ -15,7 +15,7 @@ double INCREASING_ROTATION_TEST 0
 double LOSS_TEST 0
 double TWITCH_TEST 0
 double SOAK_TEST 0
-double RESOLUTION_TEST 1
+double RESOLUTION_TEST 0
 double BITRATE_TEST 0
 
 double NUM_FRAMES_TO_TEST 500
@@ -33,7 +33,7 @@ double USE_SUPER_RESOLUTION 0
 double USE_COMPRESSOR_MAP 0
 double USE_D3D11 0
 double H265 0
-double NVDEC 0
+double NVDEC 1
 
 string SCREENSHOT_PATH ../content/output/testing
 string LENS_MAPPING_PATH ../../Common/LensMappings/Mapping3

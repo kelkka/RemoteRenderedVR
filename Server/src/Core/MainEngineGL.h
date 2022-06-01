@@ -90,6 +90,7 @@ private:
 
 	static const int CUBES = 6;
 	GLuint m_cubeTextures[CUBES];
+	float m_cubeHeights[CUBES];
 
 	//Encoder stuff
 	GLuint m_glEncoderBufferEye[FRAME_BUFFERS_ENCODING][2];
@@ -182,5 +183,6 @@ private:
 
 	GLuint m_timeQuery = 0;
 	GLuint64 m_cudaMemCpyTime = 0;
+
 };
 

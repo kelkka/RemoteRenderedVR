@@ -1,5 +1,6 @@
 #include "MainEngineGL.h"
 #include "PNG.h"
+#include <omp.h>
 
 
 MainEngineGL::MainEngineGL(int argc, char *argv[])
@@ -26,7 +27,6 @@ bool MainEngineGL::Init()
 	FIXED_FRAME_RATE = StatCalc::GetParameter("FIXED_FRAME_RATE") > 0;
 	USE_COMPRESSOR_MAP = StatCalc::GetParameter("USE_COMPRESSOR_MAP") > 0;
 
-	
 	if (m_server->InitNetwork() < 0)
 		return false;
 
@@ -104,6 +104,18 @@ bool MainEngineGL::Init()
 
 	m_textRenderer.SetGroupVisibility(0, 1);
 
+	static const float CUBE_HEIGHT_MAX = 6;
+
+	for (int i = 0; i < CUBES; i++)
+	{
+		float heightProc = 1 + (rand() % 900) * 0.01f;
+
+		heightProc = (1 - log10f(heightProc));
+
+		heightProc *= heightProc;
+
+		m_cubeHeights[i] = heightProc * CUBE_HEIGHT_MAX;
+	}
 
 	return true;
 }
@@ -1096,21 +1108,26 @@ void MainEngineGL::RenderScene(vr::Hmd_Eye nEye, float _dt)
 			track += (_dt) * 0.7f;
 		}
 
-		// OLD
-		//if (MOVING_SCENE)
-		//{
-		//	static double past = omp_get_wtime();
+		/*static const float RANGE = 1;
+		static const float DISTANCE = 3;
 
-		//	double present = omp_get_wtime();
-		//	track += (present - past) * 0.7f;
-		//	past = present;
-		//}
+		pos[i].x = (float)cos(track + i * 1.5f) * (RANGE + i);
+		pos[i].y = center.y - CUBE_SIZE * roomScale + CUBE_SIZE * cubeScale;
+		pos[i].z = (float)sin(track + i * 1.5f) * (RANGE + i);
+
+		float repeat = 5.0f;*/
+
+		static double past = omp_get_wtime();
+
+		double present = omp_get_wtime();
+		track += float(present - past) * 0.3f;
+		past = present;
 
 		static const float RANGE = 1;
 		static const float DISTANCE = 3;
 
 		pos[i].x = (float)cos(track + i * 1.5f) * (RANGE + i);
-		pos[i].y = center.y - CUBE_SIZE * roomScale + CUBE_SIZE * cubeScale;
+		pos[i].y = center.y - CUBE_SIZE * roomScale + CUBE_SIZE * cubeScale + m_cubeHeights[i];
 		pos[i].z = (float)sin(track + i * 1.5f) * (RANGE + i);
 
 		float repeat = 5.0f;
